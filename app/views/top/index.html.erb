@@ -1,47 +1,67 @@
 <header>
-  <h1><a href="#">portfolio</a></h1>
-  <nav>
-    <ul class="header-links">
-      <li class="header-link"><a href="#">about me</a></li>
-      <li class="header-link"><a href="#">Ruby</a></li>
-      <li class="header-link"><a href="#">Rails</a></li>
-      <li class="header-link"><a href="#">JavaScript</a></li>
-      <li class="header-link"><a href="#">React</a></li>
-    </ul>
-  </nav>
-</header>
-<main>
-  <section class="fv-section">
-    <p class="main-copy">about-me</p>
-    <p class="fv-text">内容</p>
-    <a href="#" class="cta-btn">内容2</a>
+  <section class="top-page">
+    <p class="top-page__text">Yuhei kikuta<br>portfolio</p>
+    <a href="#" class="top-page__btn">about me</a>
   </section>
-</main>
+</header>
+<section class="about-me">
+  <div class="about-me__title">
+    <div class="about-me__title__back-text">about me    </div>
+      <div class="about-me__title__front-text">about me</div>
+      <div class="about-me__title__under-bar"></div>
 
-<section class="card-section">
-  <h2 class="card-section-title">作成アプリ</h2>
-  <ul class="card-list">
-    <li class="card-item">
-      <div class="card-img">
-        <h3>ブラックジャック(Ruby)</h3>
+  </div>
+
+  <div class="about-me__content">
+    <div class="about-me__content__left">
+      <%= image_tag asset_path("aboutme.png") ,class:"about-me__content__left__profile-image"%>
+    </div>
+    <div class="about-me__content__right">
+      <div class="about-me__content__right__block">
+        <i class="fas fa-user icon"></i>
+        <div class ="about-me__content__right__block__title">パーソナル情報</div>
+        <ul class="about-me__content__right__block__info">
+          <li class ="about-me__content__right__block__info__text">菊田湧平（きくたゆうへい）
+          </li>
+          <li class ="about-me__content__right__block__info__text">1996年2月26日生まれ
+          </li>
+        </ul>
       </div>
-      <p class="card-text">説明</p>
-    </li>
-    <li class="card-item">
-      <div class="card-img">
-        <h3>何かしら(Rails)</h3>
+      <div class="about-me__content__right__block">
+        <i class="fas fa-running icon"></i>
+        <div class ="about-me__content__right__block__title">経歴</div>
+        <ul class="about-me__content__right__block__info">
+          <li class ="about-me__content__right__block__info__text">2018年3月：横浜国立大学卒
+          </li>
+          <li class ="about-me__content__right__block__info__text">2018年4月：都内税理士法人 入社
+          </li>
+          <li class ="about-me__content__right__block__info__text">頑張って働いていました。
+          </li>
+          <li class ="about-me__content__right__block__info__text">これからも頑張ります
+          </li>
+        </ul>
       </div>
-      <p class="card-text">説明</p>
-    </li>
-    <li class="card-item">
-      <div class="card-img">
-        <h3>何かしら(React)</h3>
+      <div class="about-me__content__right__block">
+        <i class="far fa-hand-point-up icon"></i>
+        <div class ="about-me__content__right__block__title">プログラミング学習
+        </div>
+        <ul class="about-me__content__right__block__info">
+          <li class ="about-me__content__right__block__info__text">html,css,Ruby,Ruby on Rails,JavaScript,jQuery
+          </li>
+          <li class ="about-me__content__right__block__info__text">頑張って勉強してます。
+          </li>
+        </ul>
       </div>
-      <p class="card-text">説明</p>
-    </li>
-  </ul>
+    </div>
+  </div>
 </section>
-
-<footer>
-  <small>all rights reserved</small>
-</footer>
+<section class="works">
+  <div class="works__title">    
+    <div class="works__title__back-text">works</div>
+      <div class="works__title__front-text">works</div>
+      <div class="works__title__under-bar"></div>
+  </div>
+  <div class="works__content">
+    <div class="works__content__title">Tax-Support</div>
+  </div>
+</section>
