@@ -7,21 +7,21 @@
   width: 100%;
   height: 52px;
   background-color: #dcdcdc;
-  position: relative;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 5;
+  display: flex;
+  justify-content: space-between;
   &__left{
     margin-left: 15px;
     line-height: 52px;
     font-size: 15px;
   }
   &__right{
+    line-height: 52px;
     &__list {
-      display: flex;
-      justify-content: space-between;
       &__contents {
-        line-height: 52px;
         display: flex;
         li {
           margin-right: 15px;
@@ -29,9 +29,7 @@
       }
     }
     &__menu {
-      position: absolute;
-      top: 15px;
-      right: 20px;
+      margin-right: 15px;
       z-index: 10;
       &__nav-drawer {
         position: relative;
@@ -82,9 +80,9 @@
           top: 0;
           left: 0;
           z-index: 30;/*最前面に*/
-          width: 90%;/*左側に隙間を作る（閉じるカバーを表示）*/
-          max-width: 330px;/*最大幅（調整してください）*/
-          height: 100%;
+          width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
+          max-width: 250px;/*最大幅（調整してください）*/
+          height: 300px;
           background: #fff;/*背景色*/
           transition: .3s ease-in-out;/*滑らかに表示*/
           -webkit-transform: translateX(-105%);
@@ -92,10 +90,12 @@
         }
         /*チェックが入ったら全てを表示*/
         #nav-input:checked ~ #nav-close {
+          width: 100%;
           display: block;/*カバーを表示*/
           opacity: .5;
         }
         #nav-input:checked ~ #nav-content {
+          width: 100%;
           -webkit-transform: translateX(0%);
           transform: translateX(0%);/*中身を表示（左へスライド）*/
           box-shadow: 6px 0 25px rgba(0,0,0,.15);
@@ -107,8 +107,8 @@
 
 .top-page {
   width: 100%;
-  margin-top: 52px;
   height: 100vh;
+  margin-top: 52px;
   background-image: image-url("top-back.jpeg");
   background-size: cover;
   background-position: center;
@@ -158,7 +158,6 @@
   &__content {
     &__left {
       text-align: center;
-      width: 100%;
       margin :0 50px;
       &__profile-image {
         border-radius: 50%;
@@ -167,7 +166,6 @@
       }
     }
     &__right {
-      width: 100%;
       margin: 0 50px;
       position: relative;
       &__block{
@@ -178,7 +176,6 @@
           left: 0;
         }
         &__title{
-          width : 100%;
           height: 24px;
           margin-left :30px;
           line-height: 24px;
@@ -197,6 +194,7 @@
 }
 
 .works{
+  width: 100%;
   background-color: #F5F5F5;
   padding-top: 60px;
   @include  title;

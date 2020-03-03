@@ -1,16 +1,13 @@
-@media screen and (max-width:800px){
-  .header__list__right{
+@media screen and (max-width:639px){
+  .header__right__list{
     display: none;
   }
 }
 
-@media screen and (min-width:800px){
-  .header__menu{
+@media screen and (min-width:639px){
+  .header__right__menu{
     display: none;
   }
-}
-
-@media screen and (min-width:800px){
   .about-me__content{
     display: flex;
     &__left{
