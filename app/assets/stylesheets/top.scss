@@ -1,11 +1,115 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "title.scss";
+@import "contents_title.scss";
+
+.header {
+  width: 100%;
+  height: 52px;
+  background-color: #dcdcdc;
+  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  &__left{
+    margin-left: 15px;
+    line-height: 52px;
+    font-size: 15px;
+  }
+  &__right{
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      &__contents {
+        line-height: 52px;
+        display: flex;
+        li {
+          margin-right: 15px;
+        }
+      }
+    }
+    &__menu {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      z-index: 10;
+      &__nav-drawer {
+        position: relative;
+        &__nav-unshown {
+          /*チェックボックス非表示*/
+          display: none;
+        }
+        #nav-open {
+          /*アイコンのスペース*/
+          display: inline-block;
+          width: 30px;
+          height: 22px;
+          vertical-align: middle;
+        }
+        #nav-open span, #nav-open span::before, #nav-open span::after{
+          /*ハンバーガーアイコン*/
+          position: absolute;
+          height: 3px;/*線の太さ*/
+          width: 25px;/*長さ*/
+          border-radius: 3px;
+          background: #808080;
+          display: block;
+          content: '';
+          cursor: pointer;
+        }
+        #nav-open span:before{
+          bottom: -8px;
+        }
+        #nav-open span:after{
+          bottom: -16px;
+        }
+
+        #nav-close{
+          display: none;/*はじめは隠しておく*/
+          position: fixed;
+          z-index: 20;
+          top: 0;/*全体に広がるように*/
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: black;
+          opacity: 0;
+          transition: .3s ease-in-out;
+        }
+        #nav-content{
+          overflow: auto;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 30;/*最前面に*/
+          width: 90%;/*左側に隙間を作る（閉じるカバーを表示）*/
+          max-width: 330px;/*最大幅（調整してください）*/
+          height: 100%;
+          background: #fff;/*背景色*/
+          transition: .3s ease-in-out;/*滑らかに表示*/
+          -webkit-transform: translateX(-105%);
+          transform: translateX(-105%);
+        }
+        /*チェックが入ったら全てを表示*/
+        #nav-input:checked ~ #nav-close {
+          display: block;/*カバーを表示*/
+          opacity: .5;
+        }
+        #nav-input:checked ~ #nav-content {
+          -webkit-transform: translateX(0%);
+          transform: translateX(0%);/*中身を表示（左へスライド）*/
+          box-shadow: 6px 0 25px rgba(0,0,0,.15);
+        }
+      }
+    }
+  }
+}
 
 .top-page {
+  width: 100%;
+  margin-top: 52px;
   height: 100vh;
-  background-image: image-url("hero-img.png");
+  background-image: image-url("top-back.jpeg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -13,10 +117,12 @@
   justify-content: center;
   flex-direction: column;
   font-family: serif;
-  &__text {
+  &__title {
     font-size: 60px;
-    font-weight: bold;
     text-align: center;
+    font-family: 'Caveat', cursive;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
   }
   &__btn {
     display: inline-block;
@@ -30,12 +136,13 @@
     margin-top: 40px;
     border-radius: 27px;
   }
-  &--btn:hover {
+  &__btn:hover {
     box-shadow: 0 0 10px #00cc00;
   }
 }
 
 .about-me{
+  width: 100%;
   background-color: white;
   padding-top: 60px;
   @include  title;
@@ -49,20 +156,18 @@
     }
   }
   &__content {
-    display: flex;
     &__left {
       text-align: center;
-      width: 250px;
+      width: 100%;
       margin :0 50px;
       &__profile-image {
         border-radius: 50%;
-        width: 250px;
         height: 250px;
         border: 1px solid black;
       }
     }
     &__right {
-      width: 500px;
+      width: 100%;
       margin: 0 50px;
       position: relative;
       &__block{
@@ -73,7 +178,7 @@
           left: 0;
         }
         &__title{
-          width : 400px;
+          width : 100%;
           height: 24px;
           margin-left :30px;
           line-height: 24px;
@@ -90,6 +195,7 @@
     }
   }
 }
+
 .works{
   background-color: #F5F5F5;
   padding-top: 60px;

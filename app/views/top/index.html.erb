@@ -1,17 +1,37 @@
-<header>
-  <section class="top-page">
-    <p class="top-page__text">Yuhei kikuta<br>portfolio</p>
-    <a href="#" class="top-page__btn">about me</a>
+<header class="header">
+  <div class="header__left">菊田湧平 Portfolio</div>
+  <section class="header__right">
+    <div class="header__right__list">
+      <ul class="header__right__list__contents">
+        <li>about me</li>
+        <li>works</li>
+        <li>and more</li>
+      </ul>
+    </div>
+    <div class="header__right__menu">
+      <div class="header__right__menu__nav-drawer">
+        <input id="nav-input" type="checkbox" class="header__right__menu__nav-drawer__nav-unshown">
+        <label id="nav-open" for="nav-input">
+          <span></span>
+        </label>
+        <label class="header__right__menu__nav-drawer__nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">内容</div>
+      </div>
+    </div>
   </section>
 </header>
+
+<section class="top-page">
+  <p class="top-page__title">Yuhei kikuta<br><span>portfolio</span></p>
+  <a href="#" class="top-page__btn">about me</a>
+</section>
+
 <section class="about-me">
   <div class="about-me__title">
-    <div class="about-me__title__back-text">about me    </div>
+    <div class="about-me__title__back-text">about me</div>
       <div class="about-me__title__front-text">about me</div>
       <div class="about-me__title__under-bar"></div>
-
   </div>
-
   <div class="about-me__content">
     <div class="about-me__content__left">
       <%= image_tag asset_path("aboutme.png") ,class:"about-me__content__left__profile-image"%>
