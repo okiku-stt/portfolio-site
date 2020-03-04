@@ -64,7 +64,7 @@
         /*クリック時の閉じる用の背景*/
         #nav-close{
           opacity: 0;/*はじめは隠しておく*/
-          pointer-events: none;/*ポインタの動作を無効化*/
+          display: none;
           position: fixed;
           z-index: 20;
           top: 0;/*全体に広がるように*/
@@ -93,7 +93,7 @@
         /* 「~」は同じ階層の後ろに並ぶ要素に適用させるセレクタ*/
         #nav-input:checked ~ #nav-close {
           width: 100%;
-          pointer-events: auto; /*ポインタの動作デフォルトに戻す*/
+          display: block;; /*ポインタの動作デフォルトに戻す*/
           opacity: 0.7;/*カバーを透明度の指定*/
         }
         #nav-input:checked ~ #nav-content {
