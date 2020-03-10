@@ -10,16 +10,19 @@
     </div>
     <div class="header__right__menu">
     <!-- ここからハンバーガーメニュー -->
-      <div class="header__right__menu__nav-drawer">
+      <div class="header__right__menu__nav-drawer" id="menu-wrapper">
       <!-- htmlの既存のcheckboxを使用し、cssでdisplay:none; -->
         <input id="nav-input" type="checkbox" class="header__right__menu__nav-drawer__nav-unshown">
         <label id="nav-open" for="nav-input">
-        <!-- cssでbefore,afterの擬似要素を使用して、3本の線を表示 -->
-          <span></span>
+          <span></span><span></span><span></span>
         </label>
         <!-- ハンバーガーをクリックした後の内容部分 -->
         <label class="header__right__menu__nav-drawer__nav-unshown" id="nav-close" for="nav-input"></label>
-        <div id="nav-content">内容</div>
+        <div id="nav-content">メニューリスト
+          <ul>
+            <li></li>
+          </ul>
+        </div>
       </div>
       <!-- ハンバーガーメニューここまで -->
     </div>
@@ -89,3 +92,29 @@
     <div class="works__content__title">Tax-Support</div>
   </div>
 </div>
+
+<script>
+  // ハンバーガーメニューをバツに変更
+  $(function() {
+      $('#nav-open').click(function() {
+          $(this).toggleClass('active');
+      });
+  });
+  // ハンバーガーメニューをバツから元に戻す
+  $(function() {
+    $('#nav-close').click(function() {
+        $('#nav-open').removeClass('active');
+    });
+  });
+  // ゆっくりスクロール
+  $(function(){
+    $('a[href^="#"]').click(function(){
+      var speed = 400;
+      var href = $(this).attr("href");
+      var target = $(href == "#" || href == "" ? 'html' : href);
+      var position = target.offset().top;
+      $('body,html').animate({scrollTop:position},speed,'swing');
+      return false
+    });
+  });
+</script>
