@@ -54,7 +54,7 @@
           height: 22px;
           vertical-align: middle;
         }
-        #nav-open span, #nav-open span::before, #nav-open span::after{
+        #nav-open span{
           /*ハンバーガーアイコン*/
           position: absolute;
           height: 3px;/*線の太さ*/
@@ -64,13 +64,41 @@
           display: block;
           content: '';
           cursor: pointer;
+          -webkit-transition: .35s ease-in-out;
+          -moz-transition: .35s ease-in-out;
+          transition: .35s ease-in-out;
         }
-        #nav-open span:before{
-          bottom: -8px;/*2本目の位置の指定*/
+        #nav-open span:nth-child(1){
+          top: 15px;/*1本目の位置の指定*/
         }
-        #nav-open span:after{
-          bottom: -16px;/*3本目の位置の指定*/
+
+        #nav-open span:nth-child(2){
+          top: 23px;/*2本目の位置の指定*/
         }
+        #nav-open span:nth-child(3){
+          top: 31px;/*3本目の位置の指定*/
+        }
+        /* 最初のspanをマイナス45度に */
+        #nav-open.active span:nth-child(1) {
+          z-index: 21;
+          background-color: white;
+          top: 23px;
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+        /* 2番目と3番目のspanを45度に */
+        #nav-open.active span:nth-child(2),
+        #nav-open.active span:nth-child(3) {
+          z-index: 21;
+          background-color: white;
+          top: 23px;
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+
+
         /*クリック時の閉じる用の背景*/
         #nav-close{
           opacity: 0;/*はじめは隠しておく*/
@@ -103,7 +131,7 @@
         /* 「~」は同じ階層の後ろに並ぶ要素に適用させるセレクタ*/
         #nav-input:checked ~ #nav-close {
           width: 100%;
-          display: block;; /*ポインタの動作デフォルトに戻す*/
+          display: block; /*ポインタの動作デフォルトに戻す*/
           opacity: 0.7;/*カバーを透明度の指定*/
         }
         #nav-input:checked ~ #nav-content {
