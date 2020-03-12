@@ -11,6 +11,15 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/{version}/jquery.min.js"></script>
   </head>
   <body>
+    <header class="application__header">
+      <div class="application__header__left">
+        <%= link_to "topに戻る", root_path,class:"application__header__left__btn top-logo" %>
+      </div>
+      <div class="application__header__right">
+      </div>
+    </header>
+    <div class="all-page-contents">
     <%= yield %>
+    </div>
   </body>
 </html>
