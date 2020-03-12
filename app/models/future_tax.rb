@@ -1,0 +1,2 @@
+class FutureTax < ApplicationRecord
+end

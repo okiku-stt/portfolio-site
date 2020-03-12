@@ -10,6 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_03_12_030016) do
 
+  create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "number", null: false
+    t.string "name", null: false
+    t.integer "settlement", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "future_taxes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "sales", null: false
+    t.integer "profit_rate", null: false
+    t.integer "fix_cost", null: false
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_future_taxes_on_company_id"
+  end
+
+  create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "year", null: false
+    t.integer "month", null: false
+    t.integer "company_tax", null: false
+    t.integer "consumption_tax", null: false
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_schedules_on_company_id"
+  end
+
+  add_foreign_key "future_taxes", "companies"
+  add_foreign_key "schedules", "companies"
 end
