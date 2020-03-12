@@ -1,8 +1,17 @@
 <div class="home--wrapper">
-  <p class="home--wrapper">今日の日付：<%= @now %></p>
-  <h1 class="home--wrapper__title">会計事務所のデータベース</h1>
+  <p class="home--wrapper__date">今日の日付：<%= @now %></p>
+  <h1 class="home--wrapper__title">Tax Support</h1>
+  <p class="home--wrapper__text">税金を身近なものへ。</p>
+  <p class="home--wrapper__text">皆様に分かりやすい情報をお届けします。</p>
   <div class="home--wrapper__company-choice">
     <%= link_to "会社選択", companies_path,class:"home--wrapper__company-choice__btn" %>
   </div>
-  
+  <div class="home--wrapper__text-bottom">
+  <p class="home--wrapper__">このサイトはお客様の納税情報を管理するアプリケーションです。</p>
+  <p class="home--wrapper__">過去の納税情報を入力することで、今後の納税スケジュールを確認することができます。</p>
+  <p class="home--wrapper__">また、売上と利益を入力することで、将来の納税金額の予測をすることができます。</p>
+  <p class="home--wrapper__">「会計事務所で働く方々、そのお客様を幸せにしたい。」</p>
+  <p class="home--wrapper__">その想いから、このサイトは出来上がりました。</p>
+  <p class="home--wrapper__">皆様に使い続けていただけるよう、我々も精一杯サポートさせていただきます。</p>
+  </div>
 </div>
