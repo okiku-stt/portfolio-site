@@ -1,0 +1,12 @@
+<div class="company--menu__info-zone">
+  <div class="company--menu__info-zone__choice-link">
+    <%= link_to "会社選択へ", companies_path,class:"company-list" %>
+  </div>
+  <div class="company--menu__info-zone__now-company">
+    <ul class="company-info">
+      <li>No. <%= @company.number %></li>
+      <li>会社名：<%= @company.name %></li>
+      <li>決算月：<%= @company.settlement%></li>
+    </ul>
+  </div>
+</div>
