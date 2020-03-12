@@ -7,7 +7,7 @@
   <%= form_with model: [@company,@schedule], local: true  do |form| %>
     <div>決算期選択
     <div><%= form.select :settle_year, [["2018年",2018],["2019年",2019],["2020年",2020]] %>
-    <%= form.select :settl_month, options_for_select([1..12],"#{@company.settle_month}") %>月期
+    <%= form.select :settle_month, options_for_select([1..12],"#{@company.settlement}") %>月期
     </div>
     <p>選択してください</p>
     </div>
@@ -31,7 +31,7 @@
 </div>
 
 <div>
-  <%= link_to "納税スケジュール・一覧", company_past_com_taxes_path %>
+  <%= link_to "納税スケジュール・一覧", company_schedules_path %>
 </div>
 
 <div>

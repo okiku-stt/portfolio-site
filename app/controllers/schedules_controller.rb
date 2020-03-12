@@ -25,6 +25,6 @@ class SchedulesController < ApplicationController
     @company = Company.find(params[:company_id])
   end
   def tax_params
-    params.require(:schedule).permit(:year,:month,:company_tax,:consumption_tax).merge(company_id: @company.id)
+    params.require(:schedule).permit(:settle_year,:settle_month,:company_tax,:consumption_tax).merge(company_id: @company.id)
   end
 end
