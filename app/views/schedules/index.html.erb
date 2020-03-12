@@ -1,0 +1,37 @@
+<div class="all">
+  <%= render 'shared/company-info' %>
+  <h1>納税スケジュール</h1>
+  <div>
+    <% @schedules.each do |schedule| %>
+      <div>事業年度：<%= schedule.settle_year %>年<%= schedule.settle_month %>月期</div>
+      <div>法人税：<%= schedule.company_tax  %>万円</div>
+      <div>消費税：<%= schedule.consumption_tax  %>万円</div>
+      <div>法人税・消費税の納付は<%= schedule.settle_payment_year %>年<%= schedule.settle_payment_month %>月末です</div>
+      <% if past_tax.past_company_tax >= 10 %>
+      <div>法人税の中間納付は<%= schedule.center_payment_year %>年<%= schedule.center_payment_month %>月末です</div>
+      <% else %>
+      <div>法人税の中間納付はありません。</div>
+      <% end %>
+      <% if schedule.past_consumption_tax <= 48 %>
+      <div>消費税の中間納付はありません</div>
+      <% elsif schedule.past_consumption_tax > 48 && schedule.past_consumption_tax <= 400 %>
+      <div>消費税の中間納付は<%= schedule.center_payment_year %>年<%= schedule.center_payment_month %>月末です。</div>
+      <% else %>
+      <div>消費税の1回目の中間納付は<%= schedule.first_payment_year %>年<%= schedule.first_payment_month %>月末です。</div>
+      <div>消費税の2回目の中間納付は<%= schedule.center_payment_year %>年<%= schedule.center_payment_month %>月末です。</div>
+      <div>消費税の3回目の中間納付は<%= schedule.third_payment_year %>年<%= schedule.third_payment_month %>月末です。</div>
+      <% end %>
+      <div>決算時納税アラート：
+        <%= schedule.settlement_alert %>
+      </div>
+    <% end %>
+  </div>
+  <div>※消費税が4800万円より多いの場合は毎月納付になります。</div>
+  <div>
+    <%= link_to "納税情報を登録", new_company_schedule_path %>
+  </div>
+
+  <div>
+    <%= link_to "メニューに戻る", company_path(@company) %>
+  </div>
+</div>

@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2020_03_12_030016) do
   end
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "year", null: false
-    t.integer "month", null: false
+    t.integer "settle_year", null: false
+    t.integer "settle_month", null: false
     t.integer "company_tax", null: false
     t.integer "consumption_tax", null: false
     t.bigint "company_id"

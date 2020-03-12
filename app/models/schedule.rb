@@ -1,67 +1,67 @@
 class Schedule < ApplicationRecord
   belongs_to :company
-  validates :year,:month,:company_tax,:consumption_tax, presence: true
+  validates :settle_year,:settle_month,:company_tax,:consumption_tax, presence: true
   def settle_payment_year
-    if month > 10
-      year + 1
+    if settle_month > 10
+      settle_year + 1
     else
-      year
+      settle_year
     end
   end
 
   def center_payment_year
-    if month > 4
-      year + 1
+    if settle_month > 4
+      settle_year + 1
     else
-      year
+      settle_year
     end
   end
 
   def first_payment_year
-    if settlement_month > 7
-      year + 1
+    if settle_month > 7
+      settle_year + 1
     else
-      year
+      settle_year
     end
   end
 
   def third_payment_year
-    if month > 1
-      year + 1
+    if settle_month > 1
+      settle_year + 1
     else
-      year
+      settle_year
     end
   end
 
   def settle_payment_month
-    if month > 10
-      month - 10
+    if settle_month > 10
+      settle_month - 10
     else
-      month + 2
+      settle_month + 2
     end
   end
 
   def center_payment_month
-    if month > 4
-      month - 4
+    if settle_month > 4
+      settle_month - 4
     else
-      month + 8
+      settle_month + 8
     end
   end
 
   def first_payment_month
-    if month > 7
-      month - 7
+    if settle_month > 7
+      settle_month - 7
     else
-      month + 5
+      settle_month + 5
     end
   end
 
   def third_payment_month
-    if month > 1
-      month - 1
+    if settle_month > 1
+      settle_month - 1
     else
-      month + 11
+      settle_month + 11
     end
   end
 
@@ -69,7 +69,7 @@ class Schedule < ApplicationRecord
     now = Time.current
     today_year = now.year
     today_month = now.month    
-    if today_year == year && today_month == month
+    if today_year == settle_year && today_month == settle_month
       return "今月末に納税があります。"
     else
       return "納税期限はすでに超過しています。"
