@@ -16,6 +16,13 @@
         <%= link_to "topに戻る", root_path,class:"application__header__left__btn top-logo" %>
       </div>
       <div class="application__header__right">
+        <% if user_signed_in? %>
+          <%= current_user.name %>さん
+          <%= link_to "Sign out", destroy_user_session_path,class:"application__header__right__btn log-out", :method => :delete%>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path,class:"application__header__right__btn log-in" %>
+          <%= link_to "新規登録", new_user_registration_path,class:"application__header__right__btn new-user" %>
+        <% end %>
       </div>
     </header>
     <div class="all-page-contents">
