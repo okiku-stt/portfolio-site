@@ -1,7 +1,7 @@
 class SchedulesController < ApplicationController
-
+  before_action :set_company
   def index
-    @schedules = Schedule.where(company_id: params[:company_id]).order(:year).order(:month)
+    @schedules = Schedule.where(company_id: params[:company_id]).order(:settle_year).order(:settle_month)
 
   end
 
