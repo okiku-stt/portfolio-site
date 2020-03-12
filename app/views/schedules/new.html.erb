@@ -7,7 +7,7 @@
   <%= form_with model: [@company,@schedule], local: true  do |form| %>
     <div>決算期選択
     <div><%= form.select :settle_year, [["2018年",2018],["2019年",2019],["2020年",2020]] %>
-    <%= form.select :settle_month, options_for_select([1..12],"#{@company.settlement}") %>月期
+    <%= form.select :settle_month, options_for_select([1,2,3,4,5,6,7,8,9,10,11,12],"#{@company.settlement}") %>月期
     </div>
     <p>選択してください</p>
     </div>

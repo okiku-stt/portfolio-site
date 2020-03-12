@@ -10,7 +10,7 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    @schedule = PastComTax.new(tax_params)
+    @schedule = Schedule.new(tax_params)
     if @schedule.save
       redirect_to company_schedules_path(@company)
     else

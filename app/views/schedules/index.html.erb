@@ -7,14 +7,14 @@
       <div>法人税：<%= schedule.company_tax  %>万円</div>
       <div>消費税：<%= schedule.consumption_tax  %>万円</div>
       <div>法人税・消費税の納付は<%= schedule.settle_payment_year %>年<%= schedule.settle_payment_month %>月末です</div>
-      <% if past_tax.past_company_tax >= 10 %>
+      <% if schedule.company_tax >= 10 %>
       <div>法人税の中間納付は<%= schedule.center_payment_year %>年<%= schedule.center_payment_month %>月末です</div>
       <% else %>
       <div>法人税の中間納付はありません。</div>
       <% end %>
-      <% if schedule.past_consumption_tax <= 48 %>
+      <% if schedule.consumption_tax <= 48 %>
       <div>消費税の中間納付はありません</div>
-      <% elsif schedule.past_consumption_tax > 48 && schedule.past_consumption_tax <= 400 %>
+      <% elsif schedule.consumption_tax > 48 && schedule.consumption_tax <= 400 %>
       <div>消費税の中間納付は<%= schedule.center_payment_year %>年<%= schedule.center_payment_month %>月末です。</div>
       <% else %>
       <div>消費税の1回目の中間納付は<%= schedule.first_payment_year %>年<%= schedule.first_payment_month %>月末です。</div>

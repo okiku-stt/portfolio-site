@@ -1,0 +1,35 @@
+<h3>法人税予測・新規登録</h3>
+<div>
+  <%= form_with model: [@company,@tax], local: true  do |form| %>
+    <div>売上
+    <div><%= form.number_field :sales %>
+    <span>万円</span>
+    </div>
+    <p>整数で入力してください</p>
+    </div>
+
+    <div>営業利益率
+    <div><%= form.number_field :profit_rate,class:"profit-rate",min:0, max:100 %>
+    <span>%</span>
+    </div>
+    <p>0から100の整数で入力してください</p>
+    </div>
+
+    <div>固定費
+    <div><%= form.number_field :fix_cost %>
+    <span>千円</span>
+    </div>
+    <p>整数で入力してください</p>
+    </div>
+
+    <%= form.submit "登録" %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "法人税予測・一覧", company_future_taxes_path %>
+</div>
+
+<div>
+  <%= link_to "メニューに戻る", company_path(@company) %>
+</div>
