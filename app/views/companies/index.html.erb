@@ -1,0 +1,31 @@
+<div class="new-company">
+  <%= link_to "顧問先の新規登録", new_company_path %>
+</div>
+<div class="company--list">
+  <% @companies.each do |company| %>
+  <div class="company--list__flex">
+    <ul class="contents">
+      <li>No.<%= company.number %></li>
+      <li>会社名：<%= company.name  %></li>
+      <li>決算月：<%= company.settlement  %></li>
+    </ul>
+    <div class="btns">
+      <div class="use-btn">
+        <%= link_to "会社メニューへ", "/companies/#{company.id}" ,class:"btn-open"%>
+      </div>
+      <div class="edit-delete-btns">
+        <div class="edit-btn-wrapper">
+          <%= link_to "/companies/#{company.id}/edit", method: :get, class:"edit-btn" do %>
+          <i class="fas fa-edit"></i><span>編集</span>
+          <% end %>
+        </div>
+        <div class="delete-btn-wrapper">
+          <%= link_to "/companies/#{company.id}", method: :delete, class:"delete-btn" do %>
+          <i class="fas fa-trash-alt"></i><span>削除</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

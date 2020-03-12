@@ -1,0 +1,104 @@
+$use-btn: #8fcc52;
+$delete-btn: #c052cc;
+$edit-btn:#31b4f5;
+
+.new-company{
+  margin-bottom: 20px;
+}
+
+.company--list{
+  width: 100%;
+  display: flex;
+  flex-wrap:wrap;
+    &__flex{
+      width: 200px;
+      margin: 0 15px 0 20px;
+    .contents{
+      list-style: none;
+      color: #1e366a;
+      border: dotted #1e366a 1px;/*ドット 色 太さ*/
+      padding: 0.5em;
+      margin: 15px 0 10px 0;
+    }
+    .btns{
+      a {
+      text-decoration: none;
+    }
+      .use-btn{
+        text-align: center;
+        .btn-open{
+          display: inline-block;
+          width: 100px;
+          height: 30px;
+          text-align: center;
+          background-color: $use-btn;
+          font-size: 12px;
+          line-height: 30px;
+          color: #FFF;
+          font-weight: bold;
+          border: 2px solid $use-btn;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+        }
+        .btn-open:after{
+          width: 100%;
+          height: 0;
+          content:"";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          background : #FFF;
+          opacity: 0;
+          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+          transition: .2s;
+          z-index: -1;
+        }
+        .btn-open:hover{
+          color: $use-btn;
+        }
+        .btn-open:hover:after{
+          height: 225%;
+          opacity: 1;
+        }
+      }
+      .edit-delete-btns{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
+        .edit-btn,.delete-btn{
+          color: #FFF;/*文字・アイコン色*/
+          border-radius: 7px;/*角丸に*/
+          display: inline-block;
+          height: 35px;/*高さ*/
+          width: 70px;/*幅*/
+          text-align: center;/*中身を中央寄せ*/
+          font-size: 14px;/*文字のサイズ*/
+          line-height: 35px;/*高さと合わせる*/
+          overflow: hidden;/*はみ出た部分を隠す*/
+          text-decoration:none;/*下線は消す*/
+          transition: .5s;
+        }
+        .edit-btn{
+          background: $edit-btn;
+        }
+        .delete-btn{
+          background: $delete-btn;
+        }
+
+        .edit-btn .fa-edit,.delete-btn .fa-trash-alt{
+          font-size: 16px;
+          
+        }
+        .edit-btn span, .delete-btn span {
+          display:inline-block;
+          
+        }
+        .edit-btn:hover,.delete-btn:hover{
+          -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+  <div>現在の会社：<%= @company.name %></div>
+  <div>No. <%= @company.number %></div>
+  <div>決算月：<%= @company.settlement%></div>
+
+<h3>過去の法人税・新規登録</h3>
+<div>
+  <%= form_with model: [@company,@schedule], local: true  do |form| %>
+    <div>決算期選択
+    <div><%= form.select :settle_year, [["2018年",2018],["2019年",2019],["2020年",2020]] %>
+    <%= form.select :settle_month, options_for_select([1,2,3,4,5,6,7,8,9,10,11,12],"#{@company.settlement}") %>月期
+    </div>
+    <p>選択してください</p>
+    </div>
+
+    <div>法人税
+    <div><%= form.number_field :company_tax %>
+    <span>万円</span>
+    </div>
+    <p>整数で入力してください</p>
+    </div>
+
+    <div>消費税
+    <div><%= form.number_field :consumption_tax %>
+    <span>万円</span>
+    </div>
+    <p>整数で入力してください</p>
+    </div>
+
+    <%= form.submit "登録" %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "納税スケジュール・一覧", company_schedules_path %>
+</div>
+
+<div>
+  <%= link_to "メニューに戻る", company_path(@company) %>
+</div>

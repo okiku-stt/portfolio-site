@@ -1,0 +1,156 @@
+/* Mixins */
+@mixin create-box($width, $height, $bRadius, $bgColor, $margin){
+  width: $width;
+  height: $height;
+  border-radius: $bRadius;
+  background-color: $bgColor;
+  margin: $margin;
+  transition: .3s all ease-in-out;
+}
+@mixin content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+}
+
+@mixin icon{
+  font-size: 48px;
+  padding: 15px;
+}
+
+@mixin title{
+  font-weight: bold;
+  padding: 10px;
+  height: 40px;
+  font-size: 24px;
+}
+
+@mixin text {
+  font-size: 15px;
+  height: 20%;
+}
+
+@mixin link{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+}
+
+$schedule : #134a66;
+$schedule2: #2eb2f4;
+$future: #99461d;
+$future2: #f5712f;
+$company-list:#cc5252;
+
+.company--menu{
+  &__info-zone{
+    display: flex;
+    justify-content: space-between;
+    &__choice-link{
+      height: 40px;
+      margin-left: 40px;
+      .company-list{
+        margin-top: 5px;
+        display: inline-block;
+        padding: 0.3em 1em;
+        text-decoration: none;
+        border-radius: 3px;
+        transition: .3s;
+        color: $company-list;
+        border: solid 2px $company-list;
+      }
+      .company-list:hover{
+        background: $company-list;
+        color: white;
+      }
+    }
+    &__now-company{
+    width: 200px;
+    margin: 0 15px 0 20px;
+      .company-info{
+        list-style: none;
+        color: #1e366a;
+        border: dotted #1e366a 1px;/*ドット 色 太さ*/
+        padding: 0.5em;
+        margin: 0 0 10px 0;
+      }
+    }
+  }
+  &__title{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0;
+  }
+  .container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    .schedule-box{
+      @include create-box(250px, 300px, 10px, white, 20px);
+      position: relative;
+      box-shadow: 0px 0px 15px $schedule2;
+      @include content;
+      .icon{
+        @include icon;
+        color: $schedule2;
+      }
+      .title{
+        @include title;
+        color: $schedule2;
+      }
+      .text{
+        @include text;
+        color: $schedule2;
+      }
+      .link{
+        @include link;
+      }
+    }
+    .schedule-box:hover{
+      background: linear-gradient(130deg, $schedule 0%, $schedule2 100%);
+      box-shadow: none;
+      .icon, .title, .text{
+        color: white;
+        transition: .3s all ease-in-out;
+      }
+    }
+    .future-box{
+      @include create-box(250px, 300px, 10px, white, 20px);
+      position: relative;
+      box-shadow: 0px 0px 15px $future2;
+      @include content;
+      .icon{
+        @include icon;
+        color: $future2;
+      }
+      .title{
+        @include title;
+        color: $future2;
+      }
+      .text{
+        @include text;
+        color: $future2;
+      }
+      .link{
+        @include link;
+      }
+    }
+    .future-box:hover{
+      background: linear-gradient(130deg, $future 0%, $future2 100%);
+      box-shadow: none;
+      .icon, .title, .text{
+        color: white;
+        transition: .3s all ease-in-out;
+      }
+    }
+  }
+}

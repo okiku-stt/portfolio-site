@@ -1,0 +1,53 @@
+<h1>法人税予測</h1>
+  現在の会社：<%= @company.name %>
+<div>
+  <% @taxes.each do |tax| %>
+    <div>NO.<%= tax.id %></div>
+
+    <div>売上</div>
+    <div><%= tax.sales.to_s(:delimited) %>万円</div>
+
+    <div>営業利益率</div>
+    <div><%= tax.profit_rate %>%</div>
+
+    <div>営業利益</div>
+    <div><%= tax.operating_profit.to_s(:delimited) %>万円</div>
+
+    <div>固定費</div>
+    <div><%= tax.fix_cost.to_s(:delimited) %>万円</div>
+
+    <div>経常利益</div>
+    <div><%= tax.ordinary_profit.to_s(:delimited) %>万円</div>
+
+    <br>
+    <b>法人税合計</b>
+    <div><%= tax.company_tax_all.to_s(:delimited) %>円</div>
+    <br>
+
+    <div>法人税</div>
+    <div><%= tax.company_tax.to_s(:delimited) %>円</div>
+
+    <div>法人住民税</div>
+    <div><%= tax.company_resident_tax.to_s(:delimited) %>円</div>
+
+    <div>事業税</div>
+    <div><%= tax.business_tax.to_s(:delimited) %>円</div>
+
+    <div>地方法人税</div>
+    <div><%= tax.local_company_tax.to_s(:delimited) %>円</div>
+
+    <div>特別法人事業税</div>
+    <div><%= tax.special_business_tax.to_s(:delimited) %>円</div>
+
+    <br>
+  <% end %>
+
+</div>
+
+<div>
+  <%= link_to "今期の予測を登録", new_company_future_tax_path %>
+</div>
+
+<div>
+  <%= link_to "メニューに戻る", company_path(@company) %>
+</div>

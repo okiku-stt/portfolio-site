@@ -1,0 +1,9 @@
+<div class="company__form">
+  <%= form_with model: @company, local: true  do |form| %>
+    <p>会社情報編集</p>
+      <div><%= form.text_field :name, placeholder: "会社名" %>会社名</div>
+      <div><%= form.number_field :number, placeholder: "123" %>顧問先番号</div>
+      <div><%= form.number_field :settlement, placeholder: "3" %>月</div>
+      <%= form.submit "SEND" %>
+  <% end %>
+</div>
