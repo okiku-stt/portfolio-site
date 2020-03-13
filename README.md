@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Tax-Support
+税金の納税と予測が簡単に分かるサイトです。
+![トップページの画像](./images/top-page.jpg)
 
-Things you may want to cover:
+### アプリ概要
+会計事務所での使用を想定しており、会社ごとに「納税スケジュール」と「納税予測」を表示することができます。
+現在、デモページを公開しております。
+全てのユーザが全ての会社を閲覧できるようになっております。
 
-* Ruby version
+### 開発環境
+Sass, CSS, HTML
+Ruby on Rails ver5.2
+MySQL
+AWS EC2
 
-* System dependencies
+### 機能
+大きく2つの機能を実装しました。
+1.納税スケジュール機能：ユーザーは決算期と法人税、消費税を入力するだけで、向こう1年間の納税スケジュールを確認することができます。
+![納税スケジュール](./images/schedule.jpg)
+2.納税予測機能：売上、利益率、固定費を入力するだけで、法人税の納税予想額を確認することができます。
+![納税予測](./images/schedule.jpg)
 
-* Configuration
+以下の機能も実装しております。
+・ユーザー登録機能(gemのdeviseを使用)
+・会社登録機能
 
-* Database creation
+※実装予定の機能
+・グループ機能：グループを会計事務所、ユーザーを職員と考え、会計事務所での運用に向けた機能を実装予定です。
+・納税スケジュールのアラート機能：納税を忘れないために、アラートを出す機能を考えております。
+・スコアリング機能：金融機関の融資の際のスコアリングを簡易的に表示する機能の実装を考えております。
 
-* Database initialization
+[こちらからご覧いただけます。](http://52.198.124.247)
 
-* How to run the test suite
+#### 工夫した点
+・入力は税金について知識がない方でもできるように、入力フォームは最小限にして、DBに保存された後にメソッドを定義して、計算を行うようにした。
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### 苦労した点・学んだ点
+・データベースに保存したデータを計算して、表示させるという実装に苦労しました。
+作成の途中で1つのフォームで2つのモデルに表示させる方法やbefore_saveメソッドを用いて、DBに保存する前に別の値をカラムに追加する方法があることを学びました。
+・AWSのEC2でデプロイする時の環境設定に苦労しました。今後はAWSの他のサービスを用いて、httpsでのデプロイやドメインの取得などに挑戦していきたいと考えております。
