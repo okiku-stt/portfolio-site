@@ -1,0 +1,37 @@
+.company-form__wrapper{
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 45px);
+  .company-form__contents{
+    position: absolute;
+    margin: auto;
+    width: 70%;
+    height: 70%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    form {
+      width: 30%;
+      margin: 0 auto;
+    }
+    &__title{
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    &__company-name{
+      margin-bottom: 20px;
+    }
+    &__number{
+      margin-bottom: 20px;
+    }
+    &__settlement{
+      margin-bottom: 20px;
+    }
+    &__send input{
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+

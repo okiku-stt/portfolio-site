@@ -52,9 +52,20 @@ $company-list:#cc5252;
   &__info-zone{
     display: flex;
     justify-content: space-between;
+    &__now-company{
+    width: 200px;
+    margin: 20px;
+      .company-info{
+        list-style: none;
+        color: #1e366a;
+        border: dotted #1e366a 1px;/*ドット 色 太さ*/
+        padding: 0.5em;
+        margin: 0 0 10px 0;
+      }
+    }
     &__choice-link{
       height: 40px;
-      margin-left: 40px;
+      margin: 20px;
       .company-list{
         margin-top: 5px;
         display: inline-block;
@@ -68,17 +79,6 @@ $company-list:#cc5252;
       .company-list:hover{
         background: $company-list;
         color: white;
-      }
-    }
-    &__now-company{
-    width: 200px;
-    margin: 0 15px 0 20px;
-      .company-info{
-        list-style: none;
-        color: #1e366a;
-        border: dotted #1e366a 1px;/*ドット 色 太さ*/
-        padding: 0.5em;
-        margin: 0 0 10px 0;
       }
     }
   }

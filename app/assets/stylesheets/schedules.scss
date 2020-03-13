@@ -1,3 +1,112 @@
 // Place all the styles related to the schedules controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$new-company:#cc7652;
+$delete-btn: #c052cc;
+$edit-btn:#31b4f5;
+
+.schedule__wrapper{
+  width: 100%;
+  .schedule__title{
+    text-align: center;
+    font-size: 30px;
+  }
+  .schedule__new{
+    margin: 40px 0 20px 20px;
+    &__btn{
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.25em 0.5em;
+      text-decoration: none;
+      color: $new-company;
+      background: #fffafa;
+      transition: .4s;
+    }
+    &__btn:hover {
+      background: $new-company;
+      color: white;
+    }
+  }
+  .schedule__contents{
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    display: flex;
+    flex-wrap:wrap;
+    &__flex{
+      width: 330px;
+      .edit-delete-btns{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
+        .edit-btn,.delete-btn{
+          color: #FFF;/*文字・アイコン色*/
+          border-radius: 7px;/*角丸に*/
+          display: inline-block;
+          height: 35px;/*高さ*/
+          width: 70px;/*幅*/
+          text-align: center;/*中身を中央寄せ*/
+          font-size: 14px;/*文字のサイズ*/
+          line-height: 35px;/*高さと合わせる*/
+          overflow: hidden;/*はみ出た部分を隠す*/
+          text-decoration:none;/*下線は消す*/
+          transition: .5s;
+        }
+        .edit-btn{
+          background: $edit-btn;
+        }
+        .delete-btn{
+          background: $delete-btn;
+        }
+
+        .edit-btn .fa-edit,.delete-btn .fa-trash-alt{
+          font-size: 16px;
+          
+        }
+        .edit-btn span, .delete-btn span {
+          display:inline-block;
+          
+        }
+        .edit-btn:hover,.delete-btn:hover{
+          -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+        }
+      }
+      .schedule-info{
+        margin-top: 20px;
+        padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+        color: #494949;/*文字色*/
+        background: #f4f4f4;/*背景色*/
+        border-left: solid 5px #7db4e6;/*左線*/
+        border-bottom: solid 3px #d7d7d7;/*下線*/
+      }
+      .schedule-tax-pay{
+        position: relative;
+        margin: 2em 0 2em 40px;
+        padding: 15px;
+        background: #fff0c6;
+        border-radius: 30px;
+      }
+      .schedule-tax-pay:before{
+        content: "";
+        position: absolute;
+        left: -38px;
+        width: 13px;
+        height: 12px;
+        bottom: 0;
+        background: #fff0c6;
+        border-radius: 50%;
+      }
+      .schedule-tax-pay:after{
+        content: "";
+        position: absolute;
+        left: -24px;
+        width: 20px;
+        height: 18px;
+        bottom: 3px;
+        background: #fff0c6;
+        border-radius: 50%;
+      }
+    }
+  }
+}

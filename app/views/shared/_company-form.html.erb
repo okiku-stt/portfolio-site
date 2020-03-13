@@ -1,0 +1,23 @@
+<div class="company-form__wrapper">
+  <div class="company-form__contents">
+    <%= form_with model: @company, local: true  do |form| %>
+      <p class="company-form__contents__title">会社登録</p>
+      <div class="company-form__contents__company-name">
+        <i class="fa fa-building fa-lg fa-fw icon" aria-hidden="true"></i>
+        <%= form.text_field :name, placeholder: "会社名" %>
+        
+      </div>
+        <div class="company-form__contents__number">
+          <i class="fa fa-list-ol fa-lg fa-fw icon" aria-hidden="true"></i>
+          <%= form.number_field :number, placeholder: "顧問先番号" %>
+        </div>
+        <div class="company-form__contents__settlement">
+        <i class="fa fa-calendar-alt fa-lg fa-fw icon" aria-hidden="true"></i>
+        <%= form.number_field :settlement, placeholder: "決算月" %>
+        </div>
+        <div class="company-form__contents__send">
+        <%= form.submit "登録" %>
+        </div>
+    <% end %>
+  </div>
+</div>
