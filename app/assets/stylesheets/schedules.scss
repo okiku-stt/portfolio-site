@@ -34,6 +34,7 @@ $edit-btn:#31b4f5;
     display: flex;
     flex-wrap:wrap;
     &__flex{
+      margin-right: 20px;
       width: 330px;
       .edit-delete-btns{
         margin-top: 10px;

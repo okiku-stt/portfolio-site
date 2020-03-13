@@ -1,0 +1,33 @@
+<div class="schedule-new">
+  <%= render 'shared/company-menu' %>
+  <div class="schedule-new__wrapper">
+    <div class="schedule-new__contents">
+      <div>
+        <%= form_with model: [@company,@schedule], local: true  do |form| %>
+          <p class="schedule-new__contents__title">税金情報登録</p>
+          <div class="schedule-new__contents__date">
+            <i class="fa fa-calendar-alt fa-lg fa-fw icon" aria-hidden="true"></i>
+            <%= form.select :settle_year, [["2018年",2018],["2019年",2019],["2020年",2020]] %>
+            <%= form.select :settle_month, options_for_select([1,2,3,4,5,6,7,8,9,10,11,12],"#{@company.settlement}") %>月期
+          </div>
+          <div class="schedule-new__contents__company-tax">
+            <i class="fa fa-calendar-alt fa-lg fa-fw icon" aria-hidden="true"></i>
+            <%= form.number_field :company_tax, placeholder: "法人税" %><span>万円</span>
+            <p>整数で入力してください</p>
+          </div>
+          <div class="schedule-new__contents__consumption-tax">
+            <i class="fa fa-calendar-alt fa-lg fa-fw icon" aria-hidden="true"></i>
+            <%= form.number_field :consumption_tax,placeholder: "消費税" %><span>万円</span>
+            <p>整数で入力してください</p>
+          </div>
+          <div class="schedule-new__contents__send">
+            <%= form.submit "登録" %>
+          </div>
+          <div>
+              <%= link_to "登録しないで戻る", company_schedules_path(@company) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

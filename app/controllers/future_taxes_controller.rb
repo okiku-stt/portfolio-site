@@ -1,5 +1,6 @@
 class FutureTaxesController < ApplicationController
   before_action :set_company
+  before_action :set_future_tax,only: [:edit,:update,:show,:destroy]
 
   def index
     @taxes = FutureTax.where(company_id: params[:company_id])
@@ -19,9 +20,24 @@ class FutureTaxesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @tax.update(tax_params)
+  end
+
+  def destroy
+    @tax.destroy
+  end
+
   private
   def set_company
     @company = Company.find(params[:company_id])
+  end
+
+  def set_future_tax
+    @tax = FutureTax.find(params[:id])
   end
 
   def tax_params
