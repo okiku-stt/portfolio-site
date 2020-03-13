@@ -1,5 +1,7 @@
 <div class="new-company">
-  <%= link_to "顧問先の新規登録", new_company_path %>
+  <%= link_to new_company_path,class:"new-company__btn" do %>
+    <i class="fa fa-caret-right"></i> 新規登録
+  <% end %>
 </div>
 <div class="company--list">
   <% @companies.each do |company| %>
